@@ -1,77 +1,166 @@
 //
 //  ContentView.swift
-//  WorkoutTrackingNew
+//  Devote
 //
-//  Created by Divy Gobiraj on 9/13/21.
+//  Created by Divy Gobiraj on 9/6/21.
 //
 
 import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    //mark - property
     @Environment(\.managedObjectContext) private var viewContext
-
+    
+    @State var task: String = ""
+    @State var sets: String = ""
+    @State var reps: String = ""
+    @State var weight: String = ""
+    @State private var selectedTab = 0
+    private var isButtonDisabled: Bool {
+        task.isEmpty || sets.isEmpty || reps.isEmpty || weight.isEmpty
+    }
+    // FETCHING DATA
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
-    var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
-
+    
+    // MARK: - FUNCTION
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            newItem.task = task
+            newItem.reps = reps
+            newItem.sets = sets
+            newItem.weight = weight
+            newItem.completion = false
+            newItem.id = UUID()
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            task = ""
+            hideKeyboard()
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
+    
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            NavigationView {
+                VStack{
+                    VStack(spacing: 16){
+                        Group{
+                            TextField("New Workout", text: $task)
+                                .padding(10)
+                                .background(Color(UIColor.systemGray6))
+                                .cornerRadius(10)
+                            HStack{
+                                TextField("Reps", text: $reps)
+                                    .padding(10)
+                                    .background(Color(UIColor.systemGray6))
+                                    .cornerRadius(10)
+                                    .keyboardType(UIKeyboardType.decimalPad)
+                                TextField("Sets", text: $sets)
+                                    .padding(10)
+                                    .background(Color(UIColor.systemGray6))
+                                    .cornerRadius(10)
+                                    .keyboardType(UIKeyboardType.decimalPad)
+                            }
+                            TextField("Weight", text: $weight)
+                                .padding(10)
+                                .background(Color(UIColor.systemGray6))
+                                .cornerRadius(10)
+                                .keyboardType(UIKeyboardType.decimalPad)
+                        }
+                        .font(Font.system(size: 14, design: .default))
+                        
+                        
+                        Button(action: {addItem()}, label: {
+                            Spacer()
+                            Text("Add Workout")
+                            Spacer()
+                        })
+                        .padding()
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .background(isButtonDisabled ? Color.gray:Color.pink)
+                        .cornerRadius(10)
+                        .disabled(isButtonDisabled)
+                    } //:VSTACK
+                    .padding()
+                    List {
+                        ForEach(items.reversed()) { item in
+                            VStack(alignment: .leading) {
+                                HStack(){
+                                    Text(item.task ?? "" )
+                                    Text(item.reps ?? "" )
+                                    Text("x")
+                                    Text(item.sets ?? "" )
+                                    Text("at")
+                                    Text(item.weight ?? "")
+                                    Text("lbs")
+                                }
+                                
+                                Text("Workout at \(item.timestamp!, formatter: itemFormatter) ")
+                                    .foregroundColor(.gray)
+                                    .font(.footnote)
+                                //List Item
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
+                    }//:List
+                    
+                }//:VStack
+                .navigationBarTitle("My Workouts", displayMode: .large)
+                .toolbar {
+                    #if os(iOS)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                    #endif
+                    
+                    
+                    
+                }//: TOOLBAR
+            }//: NAVIGATION
+            .tabItem {
+                Image(systemName: "star")
+                Text("One")
+            }
+            .tag(0)
+            
+            Text("Tab 2")
+                .tabItem {
+                    Image(systemName: "star.fill")
+                    Text("Two")
+                }
+                .tag(1)
+        }
+    }
+    
+    
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

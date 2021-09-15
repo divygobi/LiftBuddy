@@ -12,7 +12,9 @@
 		13AA9D0F26EFE94300D2A30F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AA9D0E26EFE94300D2A30F /* Assets.xcassets */; };
 		13AA9D1226EFE94300D2A30F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AA9D1126EFE94300D2A30F /* Preview Assets.xcassets */; };
 		13AA9D1426EFE94300D2A30F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D1326EFE94300D2A30F /* Persistence.swift */; };
-		13AA9D1726EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D1526EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodeld */; };
+		13AA9D2626EFE9BB00D2A30F /* Workout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D2426EFE9BB00D2A30F /* Workout.xcdatamodeld */; };
+		13AA9D2926EFEBFB00D2A30F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D2826EFEBFB00D2A30F /* Formatter.swift */; };
+		13AA9D2B26EFEC2F00D2A30F /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D2A26EFEC2F00D2A30F /* HideKeyboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +24,10 @@
 		13AA9D0E26EFE94300D2A30F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13AA9D1126EFE94300D2A30F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		13AA9D1326EFE94300D2A30F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		13AA9D1626EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkoutTrackingNew.xcdatamodel; sourceTree = "<group>"; };
 		13AA9D1826EFE94300D2A30F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13AA9D2526EFE9BB00D2A30F /* Workout.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Workout.xcdatamodel; sourceTree = "<group>"; };
+		13AA9D2826EFEBFB00D2A30F /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		13AA9D2A26EFEC2F00D2A30F /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +62,12 @@
 			children = (
 				13AA9D0A26EFE94200D2A30F /* WorkoutTrackingNewApp.swift */,
 				13AA9D0C26EFE94200D2A30F /* ContentView.swift */,
+				13AA9D2826EFEBFB00D2A30F /* Formatter.swift */,
+				13AA9D2A26EFEC2F00D2A30F /* HideKeyboardExtension.swift */,
+				13AA9D2426EFE9BB00D2A30F /* Workout.xcdatamodeld */,
 				13AA9D0E26EFE94300D2A30F /* Assets.xcassets */,
 				13AA9D1326EFE94300D2A30F /* Persistence.swift */,
 				13AA9D1826EFE94300D2A30F /* Info.plist */,
-				13AA9D1526EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodeld */,
 				13AA9D1026EFE94300D2A30F /* Preview Content */,
 			);
 			path = WorkoutTrackingNew;
@@ -144,10 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AA9D2926EFEBFB00D2A30F /* Formatter.swift in Sources */,
 				13AA9D1426EFE94300D2A30F /* Persistence.swift in Sources */,
+				13AA9D2B26EFEC2F00D2A30F /* HideKeyboardExtension.swift in Sources */,
 				13AA9D0D26EFE94200D2A30F /* ContentView.swift in Sources */,
 				13AA9D0B26EFE94200D2A30F /* WorkoutTrackingNewApp.swift in Sources */,
-				13AA9D1726EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodeld in Sources */,
+				13AA9D2626EFE9BB00D2A30F /* Workout.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,13 +346,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		13AA9D1526EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodeld */ = {
+		13AA9D2426EFE9BB00D2A30F /* Workout.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				13AA9D1626EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodel */,
+				13AA9D2526EFE9BB00D2A30F /* Workout.xcdatamodel */,
 			);
-			currentVersion = 13AA9D1626EFE94300D2A30F /* WorkoutTrackingNew.xcdatamodel */;
-			path = WorkoutTrackingNew.xcdatamodeld;
+			currentVersion = 13AA9D2526EFE9BB00D2A30F /* Workout.xcdatamodel */;
+			path = Workout.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
