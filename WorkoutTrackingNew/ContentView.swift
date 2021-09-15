@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Devote
 //
-//  Created by Divy Gobiraj on 9/6/21.
+//
 //
 
 import SwiftUI
@@ -130,7 +130,7 @@ struct ContentView: View {
                     }//:List
                     
                 }//:VStack
-                .navigationBarTitle("My Workouts", displayMode: .large)
+                .navigationBarTitle("Add Workout", displayMode: .large)
                 .toolbar {
                     #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -143,17 +143,23 @@ struct ContentView: View {
                 }//: TOOLBAR
             }//: NAVIGATION
             .tabItem {
-                Image(systemName: "star")
-                Text("One")
+                Image(systemName: "plus")
+                Text("Add Workout")
             }
             .tag(0)
             
-            Text("Tab 2")
+            Text("History")
                 .tabItem {
-                    Image(systemName: "star.fill")
-                    Text("Two")
+                    Image(systemName: "calendar.badge.clock")
+                    Text("History")
                 }
                 .tag(1)
+            Text("Settings")
+                .tabItem{
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }
+                .tag(2)
         }
     }
     
