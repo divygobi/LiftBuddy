@@ -16,7 +16,10 @@ struct ContentView: View {
     @State var sets: String = ""
     @State var reps: String = ""
     @State var weight: String = ""
+    @State var dates = [Date]()
     @State private var selectedTab = 0
+    
+    
     private var isButtonDisabled: Bool {
         task.isEmpty || sets.isEmpty || reps.isEmpty || weight.isEmpty
     }
@@ -30,6 +33,7 @@ struct ContentView: View {
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
+            dates.append(Date())
             newItem.timestamp = Date()
             newItem.task = task
             newItem.reps = reps
@@ -148,7 +152,7 @@ struct ContentView: View {
             }
             .tag(0)
             
-            Text("History")
+            CalendarView(dates: dates)
                 .tabItem {
                     Image(systemName: "calendar.badge.clock")
                     Text("History")

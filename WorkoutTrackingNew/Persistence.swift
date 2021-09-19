@@ -6,15 +6,15 @@
 //
 
 import CoreData
+//MARK - 1. persistence controller
 
 struct PersistenceController {
     static let shared = PersistenceController()
-    //MARK - 1. persistence controller
-
-    
-    let container: NSPersistentContainer
+  
     //MARK - 2. persistence container
-
+    let container: NSPersistentContainer
+   
+    //MARK - 3. initialization(loads up
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Workout")
         if inMemory {
@@ -28,7 +28,7 @@ struct PersistenceController {
         })
     }
     
-    //MARK - 3. initialization(loads up
+    //MARK - 4. preview hi
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
@@ -47,7 +47,7 @@ struct PersistenceController {
         return result
     }()
 
-    //MARK - 4. preview hi
+   
 
 
 }

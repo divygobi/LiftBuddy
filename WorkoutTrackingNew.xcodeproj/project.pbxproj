@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1322883626F400C00094D4C3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1322883526F400C00094D4C3 /* CalendarView.swift */; };
 		13AA9D0B26EFE94200D2A30F /* WorkoutTrackingNewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D0A26EFE94200D2A30F /* WorkoutTrackingNewApp.swift */; };
 		13AA9D0D26EFE94200D2A30F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA9D0C26EFE94200D2A30F /* ContentView.swift */; };
 		13AA9D0F26EFE94300D2A30F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AA9D0E26EFE94300D2A30F /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1322883526F400C00094D4C3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		13AA9D0726EFE94200D2A30F /* WorkoutTrackingNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTrackingNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AA9D0A26EFE94200D2A30F /* WorkoutTrackingNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTrackingNewApp.swift; sourceTree = "<group>"; };
 		13AA9D0C26EFE94200D2A30F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				13AA9D0A26EFE94200D2A30F /* WorkoutTrackingNewApp.swift */,
 				13AA9D0C26EFE94200D2A30F /* ContentView.swift */,
+				1322883526F400C00094D4C3 /* CalendarView.swift */,
 				13AA9D2826EFEBFB00D2A30F /* Formatter.swift */,
 				13AA9D2A26EFEC2F00D2A30F /* HideKeyboardExtension.swift */,
 				13AA9D2426EFE9BB00D2A30F /* Workout.xcdatamodeld */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13AA9D2926EFEBFB00D2A30F /* Formatter.swift in Sources */,
+				1322883626F400C00094D4C3 /* CalendarView.swift in Sources */,
 				13AA9D1426EFE94300D2A30F /* Persistence.swift in Sources */,
 				13AA9D2B26EFEC2F00D2A30F /* HideKeyboardExtension.swift in Sources */,
 				13AA9D0D26EFE94200D2A30F /* ContentView.swift in Sources */,
